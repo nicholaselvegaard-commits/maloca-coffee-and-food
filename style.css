@@ -63,32 +63,36 @@ body {
 .tropical-bg::after {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 520px;
+  height: 520px;
   background:
-    radial-gradient(circle at center,
+    radial-gradient(
+      circle at center,
       rgba(120,160,120,0.18),
-      transparent 70%);
-  animation: floatLeaves 40s linear infinite;
+      transparent 70%
+    );
+  animation: floatLeaves 45s linear infinite;
 }
 
 .tropical-bg::after {
-  animation-delay: -20s;
+  animation-delay: -22s;
   top: 60%;
   left: 60%;
 }
 
-.cool.tropical-bg::before,
-.cool.tropical-bg::after {
+.tropical-bg.cool::before,
+.tropical-bg.cool::after {
   background:
-    radial-gradient(circle at center,
+    radial-gradient(
+      circle at center,
       rgba(90,120,160,0.18),
-      transparent 70%);
+      transparent 70%
+    );
 }
 
 @keyframes floatLeaves {
   from { transform: translate(0,0) rotate(0deg); }
-  to { transform: translate(120px,-160px) rotate(360deg); }
+  to { transform: translate(140px,-180px) rotate(360deg); }
 }
 
 /* PAGE */
@@ -131,9 +135,10 @@ body {
 .image img {
   width: 100%;
   border-radius: 6px;
+  display: block;
 }
 
-/* PAPER BOX */
+/* PAPER BOX (LIGHT BROWN) */
 .paper {
   background: #e6ddcc;
   padding: 48px;
@@ -141,19 +146,59 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-.paper ul {
-  margin-left: 18px;
+/* CONTACT BOX */
+.paper.contact h2 {
   margin-bottom: 16px;
 }
 
-.paper li {
-  margin-bottom: 6px;
+.paper.contact p {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.paper.contact a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.paper.contact a:hover {
+  text-decoration: underline;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.socials svg {
+  width: 18px;
+  height: 18px;
+  fill: #1a1a1a;
+}
+
+/* MAP SECTION */
+.map-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 140px;
+  align-items: center;
+}
+
+.map iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  border-radius: 6px;
 }
 
 /* MOBILE */
 @media (max-width: 900px) {
   .split-section,
-  .split-section.reverse {
+  .split-section.reverse,
+  .map-section {
     grid-template-columns: 1fr;
   }
 
