@@ -27,6 +27,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 28px 40px;
+  position: relative;
+  z-index: 3;
 }
 
 .nav-left a {
@@ -38,7 +40,7 @@ body {
 }
 
 .nav-left a:hover {
-  color: #7fa38a;
+  color: #8a7f6a;
 }
 
 .nav-left a.active {
@@ -49,11 +51,35 @@ body {
   width: 42px;
 }
 
+/* BACKGROUND LINES */
+.bg-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    repeating-linear-gradient(
+      120deg,
+      rgba(0,0,0,0.03),
+      rgba(0,0,0,0.03) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+  animation: drift 40s linear infinite;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 600px 400px; }
+}
+
 /* PAGE */
 .page {
   max-width: 1200px;
   margin: auto;
   padding: 40px 24px 120px;
+  position: relative;
+  z-index: 1;
 }
 
 /* INTRO */
@@ -67,7 +93,7 @@ body {
   line-height: 1.6;
 }
 
-/* SPLIT */
+/* SPLIT SECTIONS */
 .split-section {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -84,30 +110,48 @@ body {
   order: 2;
 }
 
-.image {
-  position: relative;
-}
-
 .image img {
   width: 100%;
   border-radius: 6px;
-  position: relative;
-  z-index: 2;
 }
 
-/* OLD PAPER */
+/* PAPER BOX – LIGHT BROWN */
 .paper {
-  background-image: url("oldpaper.jpg");
-  background-size: cover;
-  background-position: center;
+  background: #e9e1d4;
   padding: 48px;
   min-height: 260px;
   box-shadow:
-    0 8px 20px rgba(0,0,0,0.08),
-    inset 0 0 0 1px rgba(0,0,0,0.05);
+    0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* MAP SECTION */
+/* CONTACT */
+.paper.contact p {
+  margin-bottom: 14px;
+}
+
+.paper.contact a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.paper.contact a:hover {
+  text-decoration: underline;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.socials svg {
+  width: 18px;
+  height: 18px;
+  fill: #1a1a1a;
+}
+
+/* MAP */
 .map-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -121,49 +165,6 @@ body {
   height: 360px;
   border: none;
   border-radius: 6px;
-}
-
-/* SOCIAL ICONS */
-.socials {
-  display: flex;
-  gap: 14px;
-  margin-top: 16px;
-}
-
-.socials svg {
-  width: 18px;
-  height: 18px;
-}
-
-.socials a:nth-child(1) svg {
-  fill: #E1306C;
-}
-
-.socials a:nth-child(2) svg {
-  fill: #1877F2;
-}
-
-/* GLOWS */
-.glow-yellow::before,
-.glow-purple::before,
-.glow-green::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  filter: blur(40px);
-  z-index: 1;
-}
-
-.glow-yellow::before {
-  background: rgba(255, 220, 120, 0.45);
-}
-
-.glow-purple::before {
-  background: rgba(180, 140, 210, 0.45);
-}
-
-.glow-green::before {
-  background: rgba(160, 220, 180, 0.45);
 }
 
 /* MOBILE */
