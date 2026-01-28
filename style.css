@@ -11,14 +11,14 @@ body {
   overflow-x: hidden;
 }
 
-/* PAGE TRANSITION */
+/* PAGE FADE */
 .page-transition {
-  animation: pageFade 0.6s ease both;
+  animation: fadePage 0.6s ease both;
 }
 
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadePage {
+  from { opacity: 0 }
+  to { opacity: 1 }
 }
 
 /* TOPBAR */
@@ -33,7 +33,7 @@ body {
   margin-right: 24px;
   text-decoration: none;
   color: #1a1a1a;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   transition: color 0.3s ease;
 }
 
@@ -63,11 +63,11 @@ body {
 }
 
 .subtitle {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   line-height: 1.6;
 }
 
-/* SPLIT SECTIONS */
+/* SPLIT */
 .split-section {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -84,59 +84,30 @@ body {
   order: 2;
 }
 
+.image {
+  position: relative;
+}
+
 .image img {
   width: 100%;
   border-radius: 6px;
+  position: relative;
+  z-index: 2;
 }
 
-/* PAPER BOX (old paper) */
+/* OLD PAPER */
 .paper {
-  background: url("oldpaper.jpg") center / cover no-repeat;
+  background-image: url("oldpaper.jpg");
+  background-size: cover;
+  background-position: center;
   padding: 48px;
   min-height: 260px;
   box-shadow:
-    0 6px 16px rgba(0,0,0,0.08),
+    0 8px 20px rgba(0,0,0,0.08),
     inset 0 0 0 1px rgba(0,0,0,0.05);
 }
 
-/* CONTACT */
-.paper.contact h2 {
-  margin-bottom: 16px;
-}
-
-.paper.contact p {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-.paper.contact a {
-  color: #1a1a1a;
-  text-decoration: none;
-}
-
-.paper.contact a:hover {
-  text-decoration: underline;
-}
-
-/* SOCIALS */
-.socials {
-  display: flex;
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.socials svg {
-  width: 22px;
-  height: 22px;
-  fill: #1a1a1a;
-  transition: fill 0.3s ease;
-}
-
-.socials a:hover svg {
-  fill: #7fa38a;
-}
-
-/* MAP */
+/* MAP SECTION */
 .map-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -150,6 +121,49 @@ body {
   height: 360px;
   border: none;
   border-radius: 6px;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.socials svg {
+  width: 18px;
+  height: 18px;
+}
+
+.socials a:nth-child(1) svg {
+  fill: #E1306C;
+}
+
+.socials a:nth-child(2) svg {
+  fill: #1877F2;
+}
+
+/* GLOWS */
+.glow-yellow::before,
+.glow-purple::before,
+.glow-green::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.glow-yellow::before {
+  background: rgba(255, 220, 120, 0.45);
+}
+
+.glow-purple::before {
+  background: rgba(180, 140, 210, 0.45);
+}
+
+.glow-green::before {
+  background: rgba(160, 220, 180, 0.45);
 }
 
 /* MOBILE */
